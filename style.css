@@ -22,7 +22,9 @@
 html{
     font-size: 62.5%;
 }
-
+ body {
+  height: 100%;
+ }
 
 /*mobile size*/
 .main-title{
@@ -67,21 +69,14 @@ line-height:normal;
 }
 
 /*videolink*/
-.styled-link{
-    display:flex;
-    padding-right: 1rem;
-}
 
-.video-link,.icon{
+.video-link{
     text-decoration: none;
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 24px;
     color: var(--color-link);
-}
-
-.icon{
-    margin-right: 0.5rem;
+    top: 1rem;
 }
 
 /*font-size :desktop*/
@@ -104,8 +99,11 @@ line-height:normal;
 margin-top: 2rem!important;
 }
 
-.box{
-    height: 400px!important;
+.container{
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-top: 3rem;
+  gap: 2.8rem;
 }
 
 }
@@ -122,8 +120,9 @@ margin-top: 2rem!important;
 .gallery{
     background-color: var(--color-container);
      width: 100%;
-    height: auto;
+     min-height: 100vh;
     padding-top: 4rem;
+    
 }
 
 /*container-mobile*/
@@ -135,21 +134,23 @@ margin-top: 2rem!important;
     grid-template-columns: 1fr;
     padding-top: 2rem ;
     border-radius: 1rem;
-    
-    
+    flex: 1; 
 }
 
 .box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--color-box);
-    border-radius:2.4rem ;
-    padding:1rem 1rem  ;
-    width: 310px;
-    height: 370px;
-    margin-bottom: 2rem;
-    
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1rem 1rem;
+  margin-bottom: 2.7rem;
+}
+
+.box .bg-image {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 👈 نسبت 16:9 */
+  object-fit: cover;    /* 👈 برش تصویر برای پرکردن قاب */
+  display: block;
 }
 
 .box-footer{
@@ -174,13 +175,38 @@ margin-top: 1.9rem;
     .container{
         grid-template-columns: repeat(3,1fr);
     }
-    
+   
 }
 
 @media (min-width:1280px) {
 
     .container{
         grid-template-columns: repeat(4,1fr);
+        
     }
     
+    
+}
+
+.boxheader{
+    position: relative;
+}
+
+.badge{
+    text-decoration: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 5px 10px;
+    background-color:red;
+    color: var(--color-container);
+    border-radius: 0.7rem;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+  background: #a91e1b; /* رنگ تیره‌تر */
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
